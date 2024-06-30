@@ -59,7 +59,8 @@ app.get("/delete", async (req, res) => {
 app.listen(8080, async () => {
     console.log("server is running")
     try {
-        await redisClient.connect()
+        await redisClient.connect();
+        console.log("connected to redis server")
     } catch (error) {
         console.log(error.errors[0].message)
     }
