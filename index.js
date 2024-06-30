@@ -30,9 +30,8 @@ app.get("/set", async (req, res) => {
 
 app.get("/get", async (req, res) => {
     try {
-        let data;
-        const d = await redisClient.get("name")
-        console.log(d)
+        const data = await redisClient.get("name")
+        console.log(data)
         return res.status(200).json({
             "ok": true,
             "data": data
