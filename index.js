@@ -29,6 +29,22 @@ app.get("/set", async (req, res) => {
 })
 
 
+app.get("/get", async (req, res) => {
+    try {
+        let data;
+        const d = await redisClient.get("name")
+        console.log(d)
+        return res.status(200).json({
+            "ok": true,
+            "data": data
+        })
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+
+
 app.listen(8080, async () => {
     console.log("server is running")
     await redisClient.connect()
